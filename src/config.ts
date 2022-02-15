@@ -11,5 +11,6 @@ export const config = {
     base: 'https://workflowy.com',
     login: 'https://workflowy.com/ajax_login',
     getInitializationData: 'https://workflowy.com/get_initialization_data',
+    pushAndPoll: 'https://workflowy.com/push_and_poll',
   },
 }

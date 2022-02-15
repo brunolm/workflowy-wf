@@ -1,12 +1,35 @@
-import { inspect } from 'util'
-import { getInitializationData, login } from './workflowy'
+import { program } from 'commander'
+import { createList, getInitializationData, login } from './workflowy'
 
 const start = async () => {
-  const sessionId = await login()
+  program
+    .command('login')
+    .option('-u, --user <user>')
+    .option('-p, --password <pass>')
+    .option('--ignore-cache')
+    .action(async (p) => {
+      await login(p)
+      await getInitializationData()
 
-  const data = await getInitializationData(sessionId)
+      console.log('Logged in')
+    })
 
-  console.log(inspect(data.projectTreeData.mainProjectTreeInfo.rootProjectChildren, false, 10, true))
+  program
+    .command('add')
+    .option('-u, --user <user>')
+    .option('-p, --password <pass>')
+    .option('-l, --list <list>')
+    .option('-n, --name <name>', 'Content of the item')
+    .action(async (p) => {
+      await login(p)
+      await getInitializationData()
+
+      await createList(p.list, p.name)
+
+      console.log('Created')
+    })
+
+  program.parse(process.argv)
 }
 
 start()
