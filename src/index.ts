@@ -17,6 +17,7 @@ const start = async () => {
             parameters,
           },
           IcoPath: 'Images\\app.png',
+          Score: 100,
         }
       : undefined
 
@@ -32,6 +33,7 @@ const start = async () => {
         parameters: [userParam, passParam],
       },
       IcoPath: 'Images\\app.png',
+      Score: 0,
     }
 
     console.log(
