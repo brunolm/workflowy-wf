@@ -1,11 +1,12 @@
 {
-  "name": "w",
+  "name": "wf",
   "version": "0.0.1",
   "bin": "index.js",
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "build-watch": "tsc -p . --watch"
   },
   "license": "MIT",
   "dependencies": {

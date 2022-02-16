@@ -1,35 +1,60 @@
-import { program } from 'commander'
+import { loadSettings } from './settings'
 import { createList, getInitializationData, login } from './workflowy'
 
+const parsed = JSON.parse(process.argv[2])
+const { method, parameters } = parsed
+
 const start = async () => {
-  program
-    .command('login')
-    .option('-u, --user <user>')
-    .option('-p, --pass <pass>')
-    .option('--ignore-cache')
-    .action(async (p) => {
-      await login(p)
-      await getInitializationData()
+  const settings = loadSettings()
 
-      console.log('Logged in')
-    })
+  if (method === 'query') {
+    const saveNoteAction = settings.sessionId
+      ? {
+          Title: 'Workflowy: Save note',
+          Subtitle: `${method} ${parameters}`,
+          JsonRPCAction: {
+            method: 'saveNote',
+            parameters,
+          },
+          IcoPath: 'Images\\app.png',
+        }
+      : undefined
 
-  program
-    .command('add')
-    .option('-u, --user <user>')
-    .option('-p, --pass <pass>')
-    .option('-l, --list <list>')
-    .option('-n, --name <name>', 'Content of the item')
-    .action(async (p) => {
-      await login(p)
-      await getInitializationData()
+    const [userParam, passParam] = [
+      `${parameters?.[0].split(/ /g).slice(0, 1)}`,
+      `${parameters?.[0].split(/ /g).slice(1)}`,
+    ]
+    const loginAction = {
+      Title: 'Workflowy: Login',
+      Subtitle: `user: ${parameters?.[0].split(/ /g).slice(0, 1)} password: ${parameters?.[0].split(/ /g).slice(1)}`,
+      JsonRPCAction: {
+        method: 'login',
+        parameters: [userParam, passParam],
+      },
+      IcoPath: 'Images\\app.png',
+    }
 
-      await createList(p.list, p.name)
+    console.log(
+      JSON.stringify({
+        result: [saveNoteAction, loginAction].filter(Boolean),
+      }),
+    )
 
-      console.log('Created')
-    })
+    return
+  }
 
-  program.parse(process.argv)
+  if (method === 'login') {
+    const [user, pass] = parameters
+
+    await login({ user, pass, ignoreCache: true })
+    await getInitializationData()
+
+    return
+  }
+
+  if (method === 'saveNote') {
+    await createList('None', parameters[0])
+  }
 }
 
 start()

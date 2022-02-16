@@ -1,0 +1,12 @@
+{
+  "ID": "3b42afc0d17f45b98a55e324728252be",
+  "ActionKeyword": "wf",
+  "Name": "Workflowy",
+  "Description": "Quick save items to Workflowy",
+  "Author": "BrunoLM",
+  "Version": "1.0.0",
+  "Language": "executable",
+  "Website": "https://github.com/brunolm/workflowy-wf",
+  "ExecuteFileName": "run.bat",
+  "IcoPath": "Images\\app.png"
+}
