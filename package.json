@@ -1,7 +1,11 @@
 {
-  "main": "build/src/index.js",
+  "name": "w",
+  "version": "0.0.1",
+  "bin": "index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "build": "tsc -p ."
   },
   "license": "MIT",
   "dependencies": {

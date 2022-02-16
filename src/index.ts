@@ -5,7 +5,7 @@ const start = async () => {
   program
     .command('login')
     .option('-u, --user <user>')
-    .option('-p, --password <pass>')
+    .option('-p, --pass <pass>')
     .option('--ignore-cache')
     .action(async (p) => {
       await login(p)
@@ -17,7 +17,7 @@ const start = async () => {
   program
     .command('add')
     .option('-u, --user <user>')
-    .option('-p, --password <pass>')
+    .option('-p, --pass <pass>')
     .option('-l, --list <list>')
     .option('-n, --name <name>', 'Content of the item')
     .action(async (p) => {
