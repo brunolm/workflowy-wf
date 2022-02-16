@@ -17,5 +17,5 @@ wf user password
 Saves on the root level.
 
 ```
-wf note message
+wf your message here
 ```
