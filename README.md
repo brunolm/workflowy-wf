@@ -9,7 +9,7 @@ Quickly save notes on your Workflowy.
 Required once and every ~6 months.
 
 ```
-wf user password
+wf email password
 ```
 
 ## Save note

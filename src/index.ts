@@ -27,7 +27,7 @@ const start = async () => {
     ]
     const loginAction = {
       Title: 'Workflowy: Login',
-      Subtitle: `user: ${parameters?.[0].split(/ /g).slice(0, 1)} password: ${parameters?.[0].split(/ /g).slice(1)}`,
+      Subtitle: `email: ${parameters?.[0].split(/ /g).slice(0, 1)} password: ${parameters?.[0].split(/ /g).slice(1)}`,
       JsonRPCAction: {
         method: 'login',
         parameters: [userParam, passParam],
