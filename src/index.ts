@@ -16,7 +16,7 @@ const start = async () => {
             method: 'saveNote',
             parameters,
           },
-          IcoPath: 'Images\\app.png',
+          IcoPath: 'icon.jpg',
           Score: 100,
         }
       : undefined
@@ -32,7 +32,7 @@ const start = async () => {
         method: 'login',
         parameters: [userParam, passParam],
       },
-      IcoPath: 'Images\\app.png',
+      IcoPath: 'icon.jpg',
       Score: 0,
     }
 
