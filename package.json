@@ -9,6 +9,10 @@
     "build-watch": "tsc -p . --watch"
   },
   "license": "MIT",
+  "engines": {
+    "node": ">=14",
+    "yarn": ">=1.22"
+  },
   "dependencies": {
     "@types/luxon": "^2.0.9",
     "@types/node": "^17.0.18",
