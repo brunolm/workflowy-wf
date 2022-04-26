@@ -36,6 +36,9 @@ jobs:
         with:
           path: node_modules
 
+      - name: Install Prod
+        run: yarn --prod
+
       - name: Pack
         run: zip -r Flow.Launcher.Plugin.WorkflowyWF.zip . -x '*.git*'
 
