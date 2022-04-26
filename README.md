@@ -19,3 +19,9 @@ Saves on the root level.
 ```
 wf your message here
 ```
+
+# Installation
+
+Unzip folder in `%APPDATA%\FlowLauncher\Plugins\`.
+
+![](./README/installdir.png)
